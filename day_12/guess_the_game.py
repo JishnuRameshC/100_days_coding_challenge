@@ -1,8 +1,6 @@
 import random
 from art import logo
 import os 
-# from random import randint
-# numbers = randint(1,100)
 
 
 def guess():
@@ -14,6 +12,7 @@ def guess():
     comp_no = random.choice(numbers)
     end_game = False
     level = input("enter your level  E for easy  H for hard :")
+
     if level == "H":
         life = 5
     elif level == "E":
@@ -31,7 +30,9 @@ def guess():
             print("too long")
         elif user_no < comp_no:
             print("too short")
+
         print(f" you have {life } attempt remaing ")
+
         if life == 0:
             end_game = True
             print("you loss  🦆")
