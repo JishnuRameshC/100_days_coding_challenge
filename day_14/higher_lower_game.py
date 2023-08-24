@@ -16,6 +16,7 @@ game_over = False
 a = get_random()
 b = get_random()
 answer = ''
+score = 0
 
 while not game_over :
     if answer == '1' :
@@ -28,7 +29,7 @@ while not game_over :
         b = get_random()
 
     print(logo)
-    print('What gets Googled more?')
+    print('What gets Googled more? ')
     print(f"1 {format_data(a)}")
     print(vs)
     print(f"2 {format_data(b)}")
@@ -41,12 +42,14 @@ while not game_over :
 
     if choice == '1' and choice == answer:
         print('succes')
+        score +=1
         os.system('cls')
     elif choice == '2' and choice == answer:
         print("succes") 
+        score +=1
         os.system('cls')
     else:
-        print("you loss")
+        print(f"you loss score: {score}")
         game_over = True
 
 
