@@ -1,7 +1,11 @@
 from tkinter import *
 import pandas,random
+
+
 BACKGROUND_COLOR = "#B1DDC6"
 current_card = {}
+
+
 try:
     data = pandas.read_csv("data/words_to_learn.csv")
 except FileNotFoundError:
@@ -9,7 +13,6 @@ except FileNotFoundError:
     to_leran = orginal_data.to_dict(orient="records")
 else:
     to_leran = data.to_dict(orient="records")
-
 
 
 def next_card():
@@ -42,13 +45,13 @@ def is_known():
 window = Tk()
 window.config(padx=50,pady=50, bg=BACKGROUND_COLOR)
 flip = window.after(3000,func=flipcard)
-canva = Canvas(width=800, height=526,bg=BACKGROUND_COLOR,highlightthickness=0)
 # img files
 card_back_img = PhotoImage(file="images/card_back.png")
 right_img = PhotoImage(file="images/right.png")
 card_front_img = PhotoImage(file="images/card_front.png")
 wrong_img = PhotoImage(file="images/wrong.png")
-
+# Canvas
+canva = Canvas(width=800, height=526,bg=BACKGROUND_COLOR,highlightthickness=0)
 canva_bg = canva.create_image(400,264,image = card_front_img)
 canva_title = canva.create_text(400, 150,text="ramdom",font=("arial", 53))
 canva_text = canva.create_text(400, 300,text="ramdom",font=("arial", 53))
