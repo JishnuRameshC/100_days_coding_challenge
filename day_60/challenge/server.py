@@ -9,11 +9,6 @@ def index():
     return render_template("index.html")
 
 
-connecting = smtplib.SMTP("smtp.gmail.com", 587)
-connecting.starttls()
-connecting.login(user=my_email,password=my_password)
-
-
 @app.route('/login',methods=['post'])
 def home():
     name = request.form["name"]
